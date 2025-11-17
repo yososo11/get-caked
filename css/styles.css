@@ -1,0 +1,432 @@
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f5f5f5;
+  --text: #111111;
+  --muted: #666666;
+  --border: #e0e0e0;
+  --accent: #000000;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --transition-fast: 0.2s ease-out;
+  --max-width: 1120px;
+}
+
+/* ---------- CSS ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Inter", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+body {
+  line-height: 1.5;
+}
+
+/* ---------- HEADER & NAV ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+/* ---------- HERO SECTION ---------- */
+
+.hero {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.65);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ffffff;
+  padding: 1.5rem;
+}
+
+.hero-overlay h1 {
+  font-size: clamp(2.8rem, 6vw, 4rem);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-overlay p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #eaeaea;
+}
+
+/* ---------- GENERIC SECTIONS ---------- */
+
+.section {
+  padding: 4rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Shared section header (Products + Contact use this) */
+.section-header {
+  max-width: var(--max-width);
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.section-header h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-header p {
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Base split layout (for reuse; About overrides this) */
+.section-split {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 3rem;
+}
+
+.section-text {
+  font-size: 0.98rem;
+}
+
+.section-text p {
+  color: var(--muted);
+}
+
+/* ---------- ABOUT SECTION (Our Story) ---------- */
+/* Make About behave like a centered single-column section aligned like Contact */
+
+#about.section.section-split {
+  display: block; /* override grid for about */
+}
+
+#about .section-text {
+  max-width: var(--max-width); /* align width with Contact section */
+  margin: 0 auto;
+  text-align: center;
+}
+
+#about-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+}
+
+#about .section-text p {
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* ---------- PRODUCTS SECTION ---------- */
+
+#products-title {
+  font-size: 1.9rem;
+}
+
+/* Product grid and cards */
+.product-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.product {
+  background: #ffffff;
+  border-radius: 1.25rem;
+  padding: 1.6rem 1.6rem 1.9rem;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Hover effect on product cards */
+.product:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+.product-title {
+  text-align: center;
+  margin: 1.1rem 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.product p {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Model viewer inside products */
+
+.product model-viewer {
+  width: 100%;
+  height: 320px;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer !important;
+  transition: transform 0.25s ease;
+}
+
+/* Slight zoom on hover */
+.product:hover model-viewer {
+  transform: scale(1.02);
+}
+
+/* For iOS + Safari shadow DOM compatibility */
+model-viewer {
+  --model-viewer-cursor: pointer;
+}
+
+/* Larger model viewer on bigger screens */
+@media (min-width: 1024px) {
+  .product model-viewer {
+    height: 380px;
+  }
+}
+
+/* ---------- CONTACT SECTION ---------- */
+
+#contact-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+#contact .section-header {
+  text-align: center;
+}
+
+#contact .section-header p {
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.7;
+}
+
+#contact strong {
+  font-weight: 600;
+}
+
+/* ---------- FULLSCREEN VIEWER MODAL ---------- */
+
+.viewer-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: none; /* hidden by default */
+}
+
+.viewer-modal.is-open {
+  display: block;
+}
+
+.viewer-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.viewer-modal-dialog {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: min(900px, 90vw);
+  height: min(80vh, 70rem);
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.viewer-modal-close {
+  align-self: flex-end;
+  border: none;
+  background: transparent;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 0.75rem;
+}
+
+#viewer-modal-model {
+  width: 100%;
+  flex: 1;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* On small screens, make sure it still fits nicely */
+@media (max-width: 600px) {
+  .viewer-modal-dialog {
+    width: 94vw;
+    height: 70vh;
+    padding: 1rem;
+  }
+
+  .viewer-modal-close {
+    font-size: 1.5rem;
+  }
+}
+
+
+/* ---------- MODEL VIEWER UI ELEMENTS ---------- */
+
+.progress-bar {
+  width: 60%;
+  height: 4px;
+  margin: 0.75rem auto 0;
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar.hide {
+  display: none;
+}
+
+.update-bar {
+  width: 0%;
+  height: 100%;
+  background: #000000;
+}
+
+#ar-button {
+  margin-top: 0.75rem;
+  padding: 0.45rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid #111111;
+  background: #ffffff;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#ar-button:hover {
+  background: #111111;
+  color: #ffffff;
+}
+
+#ar-prompt {
+  margin-top: 0.5rem;
+}
+
+#ar-prompt img {
+  width: 32px;
+  opacity: 0.7;
+}
+
+/* ---------- BUTTONS ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast),
+    border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+/* ---------- FOOTER ---------- */
+
+.site-footer {
+  padding: 1.5rem 1.5rem 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}

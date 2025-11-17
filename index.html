@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Get Caked</title>
+
+  <!-- Model Viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#hero" class="logo" aria-label="Home">Get Caked</a>
+      <ul class="nav-links">
+        <li><a href="#products">Cakes</a></li>
+        <li><a href="#about">Story</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="hero" aria-labelledby="hero-title">
+      <img src="assets/3cakes.jpeg" alt="Three decorated cakes on display" class="hero-image" />
+      <div class="hero-overlay">
+        <h1 id="hero-title">Get Caked.</h1>
+        <p>Shaping your ideas into sweet creations</p>
+        <a href="#products" class="btn btn-primary">Explore Cakes</a>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="section" aria-labelledby="products-title">
+      <div class="section-header">
+        <h2 id="products-title">Teddy Trio Collection</h2>
+        <p>Meet our Teddy Trio Collection — three handcrafted bear-themed cakes, each with its own signature profile:
+          Black Forest, Strawberry, and Chocolate. Designed with creativity, baked with love,
+          and crafted with irresistible flavours.</p>
+      </div>
+
+      <div class="product-grid">
+        <!-- 1: Black Forest -->
+        <article class="product" aria-labelledby="product-1-title">
+          <h3 id="product-1-title" class="product-title">Black Forest Dream</h3>
+
+          <model-viewer 
+            src="assets/blackforest.glb"
+            alt="Black Forest cake 3D model"
+            ar 
+            ar-modes="webxr scene-viewer quick-look" 
+            camera-controls 
+            interaction-policy="always-allow"
+            tone-mapping="neutral"
+            poster="assets/poster.webp"
+            shadow-intensity="1"
+            auto-rotate
+            rotation-per-second="30deg">
+
+            <div class="progress-bar hide" slot="progress-bar">
+              <div class="update-bar"></div>
+            </div>
+
+            <button slot="ar-button" id="ar-button">
+              View in your space
+            </button>
+
+            <div id="ar-prompt">
+              <img src="https://modelviewer.dev/shared-assets/icons/hand.png" alt="Move phone to view in AR">
+            </div>
+
+          </model-viewer>
+
+          <p>Luxurious layers of moist chocolate sponge filled with tart cherries and fresh whipped cream.
+            A rich, nostalgic favorite made with real ingredients and finished with decadent chocolate shavings — perfect for any celebration.</p>
+        </article>
+
+        <!-- 2: Strawberry -->
+        <article class="product" aria-labelledby="product-2-title">
+          <h3 id="product-2-title" class="product-title">Strawberry Bliss</h3>
+
+          <model-viewer 
+            src="assets/strawberry.glb"
+            alt="Strawberry cake 3D model"
+            ar 
+            ar-modes="webxr scene-viewer quick-look" 
+            camera-controls 
+            interaction-policy="always-allow"
+            tone-mapping="neutral"
+            poster="assets/poster.webp"
+            shadow-intensity="1"
+            auto-rotate
+            rotation-per-second="30deg">
+
+            <div class="progress-bar hide" slot="progress-bar">
+              <div class="update-bar"></div>
+            </div>
+
+            <button slot="ar-button" id="ar-button">
+              View in your space
+            </button>
+
+            <div id="ar-prompt">
+              <img src="https://modelviewer.dev/shared-assets/icons/hand.png" alt="Move phone to view in AR">
+            </div>
+
+          </model-viewer>
+
+          <p>Light layers of soft vanilla sponge filled with bright strawberry compote and whipped cream.
+            Made with real berries for a naturally sweet, refreshing taste and a smooth cream finish —
+            perfect for fans of fresh, fruity desserts.</p>
+        </article>
+
+        <!-- 3: Chocolate -->
+        <article class="product" aria-labelledby="product-3-title">
+          <h3 id="product-3-title" class="product-title">Chocolate Lava Love</h3>
+
+          <model-viewer 
+            src="assets/chocolate.glb"
+            alt="Chocolate cake 3D model"
+            ar 
+            ar-modes="webxr scene-viewer quick-look" 
+            camera-controls 
+            interaction-policy="always-allow"
+            tone-mapping="neutral"
+            poster="assets/poster.webp"
+            shadow-intensity="1"
+            auto-rotate
+            rotation-per-second="30deg">
+
+            <div class="progress-bar hide" slot="progress-bar">
+              <div class="update-bar"></div>
+            </div>
+
+            <button slot="ar-button" id="ar-button">
+              View in your space
+            </button>
+
+            <div id="ar-prompt">
+              <img src="https://modelviewer.dev/shared-assets/icons/hand.png" alt="Move phone to view in AR">
+            </div>
+
+          </model-viewer>
+
+          <p>Rich layers of decadent chocolate sponge filled with smooth chocolate cream and rich cocoa notes.
+            A timeless favorite made with premium ingredients for a deep, velvety flavor — perfect for
+            every chocolate lover’s celebration.</p>        
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section section-split" aria-labelledby="about-title">
+      <div class="section-text">
+        <h2 id="about-title">Our Story</h2>
+        <p>
+          Get Caked was created with one goal: to turn your ideas into edible artistry.
+          Every cake starts with inspiration from a shape, a character, a colour, a feeling —
+          and becomes a handcrafted creation you can see, feel, and taste. We present our
+          cakes in a more immersive way, allowing users to appreciate every detail.
+          We believe dessert should be an experience, not just treat.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="section-header">
+        <h2 id="contact-title">Contact & Orders</h2>
+        <p>Cake orders are currently handled through direct email as we continue building
+          our online ordering system. Stay tuned for updates. For now, you can reach us at
+          <strong>orders@getcaked.com</strong>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer">
+    <p>&copy; <span id="year"></span> Get Caked</p>
+  </footer>
+
+
+<!-- ===================================================== -->
+<!-- FULLSCREEN 3D VIEWER MODAL (ADD THIS RIGHT BEFORE JS) -->
+<!-- ===================================================== -->
+
+<div id="viewer-modal" class="viewer-modal" aria-hidden="true">
+  <div class="viewer-modal-backdrop"></div>
+
+  <div class="viewer-modal-dialog" role="dialog" aria-modal="true">
+    <button class="viewer-modal-close" aria-label="Close full screen viewer">
+      &times;
+    </button>
+
+    <model-viewer
+      id="viewer-modal-model"
+      camera-controls
+      auto-rotate
+      tone-mapping="neutral"
+      shadow-intensity="1"
+      interaction-policy="always-allow"
+      alt="Expanded cake 3D view">
+    </model-viewer>
+  </div>
+</div>
+
+  <!-- Main JS -->
+  <script src="js/main.js"></script>
+</body>
+</html>
