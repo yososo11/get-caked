@@ -1,16 +1,13 @@
 // js/main.js
 
-// ---------------------------------------------------------
 // 1. Dynamic Year in Footer
-// ---------------------------------------------------------
 const yearSpan = document.getElementById("year");
+
 if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
 }
 
-// ---------------------------------------------------------
 // 2. Smooth Scroll for Internal Links
-// ---------------------------------------------------------
 const navLinks = document.querySelectorAll('a[href^="#"]');
 
 navLinks.forEach((link) => {
@@ -29,48 +26,47 @@ navLinks.forEach((link) => {
   });
 });
 
-// ---------------------------------------------------------
-// 3. Fullscreen 3D Viewer Modal for Model-Viewer
-// ---------------------------------------------------------
+// 3. Fullscreen 3D Viewer Modal for Cakes
 
-// Grab modal elements
+// Grab modal elements from the HTML
 const modal = document.getElementById("viewer-modal");
 const modalModel = document.getElementById("viewer-modal-model");
 const modalBackdrop = modal?.querySelector(".viewer-modal-backdrop");
 const modalCloseBtn = modal?.querySelector(".viewer-modal-close");
 
-// Only run modal code if modal exists in HTML
 if (modal && modalModel && modalBackdrop && modalCloseBtn) {
-  
-  // When clicking any model-viewer inside a product card → open fullscreen modal
-  document.querySelectorAll(".product model-viewer").forEach((viewer) => {
+  // When clicking on any 3D viewer inside a product card, open the modal
+  const productViewers = document.querySelectorAll(".product model-viewer");
+
+  productViewers.forEach((viewer) => {
     viewer.addEventListener("click", () => {
       const src = viewer.getAttribute("src");
       const alt = viewer.getAttribute("alt") || "";
 
+      // Copy the same 3D model into the fullscreen viewer
       modalModel.setAttribute("src", src);
       modalModel.setAttribute("alt", alt);
 
       modal.classList.add("is-open");
-      document.body.style.overflow = "hidden"; // Prevent background scroll
+      document.body.style.overflow = "hidden"; // stop background scroll
     });
   });
 
-  // Helper: close modal function
+  // Helper to close the modal
   function closeViewerModal() {
     modal.classList.remove("is-open");
     document.body.style.overflow = "";
   }
 
-  // Close on X button
+  // Close when clicking the X button
   modalCloseBtn.addEventListener("click", closeViewerModal);
 
-  // Close when clicking outside (backdrop)
+  // Close when clicking the dark backdrop
   modalBackdrop.addEventListener("click", closeViewerModal);
 
-  // Close on ESC key
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("is-open")) {
+  // Close when pressing the Escape key
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && modal.classList.contains("is-open")) {
       closeViewerModal();
     }
   });

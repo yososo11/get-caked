@@ -11,7 +11,7 @@
   --max-width: 1120px;
 }
 
-/* ---------- CSS ---------- */
+/* CSS */
 
 *,
 *::before,
@@ -33,7 +33,7 @@ body {
   line-height: 1.5;
 }
 
-/* ---------- HEADER & NAV ---------- */
+/* HEADER & NAV */
 
 .site-header {
   position: sticky;
@@ -81,7 +81,7 @@ body {
   color: var(--text);
 }
 
-/* ---------- HERO SECTION ---------- */
+/* HERO SECTION */
 
 .hero {
   position: relative;
@@ -121,14 +121,13 @@ body {
   color: #eaeaea;
 }
 
-/* ---------- GENERIC SECTIONS ---------- */
+/*  SECTIONS */
 
 .section {
   padding: 4rem 1.5rem;
   border-bottom: 1px solid var(--border);
 }
 
-/* Shared section header (Products + Contact use this) */
 .section-header {
   max-width: var(--max-width);
   margin: 0 auto 2.5rem;
@@ -145,15 +144,6 @@ body {
   margin: 0;
 }
 
-/* Base split layout (for reuse; About overrides this) */
-.section-split {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-  gap: 3rem;
-}
-
 .section-text {
   font-size: 0.98rem;
 }
@@ -162,15 +152,14 @@ body {
   color: var(--muted);
 }
 
-/* ---------- ABOUT SECTION (Our Story) ---------- */
-/* Make About behave like a centered single-column section aligned like Contact */
+/* ABOUT SECTION (Our Story)*/
 
 #about.section.section-split {
-  display: block; /* override grid for about */
+  display: block; 
 }
 
 #about .section-text {
-  max-width: var(--max-width); /* align width with Contact section */
+  max-width: var(--max-width);
   margin: 0 auto;
   text-align: center;
 }
@@ -186,7 +175,7 @@ body {
   line-height: 1.7;
 }
 
-/* ---------- PRODUCTS SECTION ---------- */
+/* PRODUCTS SECTION  */
 
 #products-title {
   font-size: 1.9rem;
@@ -262,7 +251,7 @@ model-viewer {
   }
 }
 
-/* ---------- CONTACT SECTION ---------- */
+/* CONTACT SECTION */
 
 #contact-title {
   font-size: 1.8rem;
@@ -283,13 +272,13 @@ model-viewer {
   font-weight: 600;
 }
 
-/* ---------- FULLSCREEN VIEWER MODAL ---------- */
+/*FULLSCREEN VIEWER MODAL*/
 
 .viewer-modal {
   position: fixed;
   inset: 0;
   z-index: 999;
-  display: none; /* hidden by default */
+  display: none; 
 }
 
 .viewer-modal.is-open {
@@ -334,7 +323,7 @@ model-viewer {
   overflow: hidden;
 }
 
-/* On small screens, make sure it still fits nicely */
+/* On small screens, make sure it still fits*/
 @media (max-width: 600px) {
   .viewer-modal-dialog {
     width: 94vw;
@@ -348,7 +337,7 @@ model-viewer {
 }
 
 
-/* ---------- MODEL VIEWER UI ELEMENTS ---------- */
+/* MODEL VIEWER UI ELEMENTS */
 
 .progress-bar {
   width: 60%;
@@ -395,7 +384,7 @@ model-viewer {
   opacity: 0.7;
 }
 
-/* ---------- BUTTONS ---------- */
+/* BUTTONS */
 
 .btn {
   display: inline-flex;
@@ -422,7 +411,7 @@ model-viewer {
   transform: translateY(-1px);
 }
 
-/* ---------- FOOTER ---------- */
+/* FOOTER */
 
 .site-footer {
   padding: 1.5rem 1.5rem 2rem;
